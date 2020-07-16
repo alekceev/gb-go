@@ -2,8 +2,6 @@ package main
 
 import (
 	"fmt"
-	"log"
-	"strconv"
 )
 
 /* 1. Написать программу для конвертации рублей в доллары.
@@ -13,21 +11,12 @@ import (
 
 const usd float64 = 71.1
 
-func init() {
-	fmt.Println("Обмен рублей по курсу ", usd, " за доллар")
-}
-
 func main() {
-	var str string
+	var rub float64
+	fmt.Println("Обмен рублей по курсу ", usd, " за доллар")
 	fmt.Println("Введите сумму в рублях:")
 	// читаем строку
-	fmt.Scanln(&str)
-
-	// конвертим в float
-	rub, err := strconv.ParseFloat(str, 64)
-	if err != nil {
-		log.Fatalln(err)
-	}
+	fmt.Scanln(&rub)
 
 	// округление до центов в пользу банка
 	fmt.Printf("Вы получите $%.2f\n", rub/usd-0.005)

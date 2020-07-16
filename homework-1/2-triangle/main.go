@@ -3,9 +3,8 @@ package main
 import (
 	"fmt"
 	"log"
-	"strconv"
 
-	"github.com/alekceev/gb-go/homework-1/2-triangle/triangle"
+	"github.com/alekceev/gb-go/homework-1/2-triangle/geometry"
 )
 
 /*
@@ -26,18 +25,19 @@ func main() {
 		log.Fatalln(err)
 	}
 
-	s := triangle.Area(a, b)
+	s := geometry.TriangleArea(a, b)
 
 	fmt.Println("Площадь треугольника равна", s)
 
-	c := triangle.Hypotenuse(a, b)
+	c := geometry.TriangleHypotenuse(a, b)
 
 	fmt.Println("Гипотенуза треугольника равна", c)
-	fmt.Println("Периметр треугольника равен", triangle.Perimeter(a, b, c))
+	fmt.Println("Периметр треугольника равен", geometry.TrianglePerimeter(a, b, c))
 }
 
 func readLeg(str string) (float64, error) {
 	fmt.Println(str)
-	fmt.Scanln(&str)
-	return strconv.ParseFloat(str, 64)
+	var f float64
+	_, err := fmt.Scanln(&f)
+	return f, err
 }

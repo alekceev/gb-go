@@ -2,27 +2,17 @@ package main
 
 import (
 	"fmt"
-	"log"
-	"strconv"
 )
 
 const years = 5
 
 func main() {
+	var amount, percent float64
 	fmt.Println("Введите сумму вклада:")
-	var str string
-	fmt.Scanln(&str)
-	amount, err := strconv.ParseFloat(str, 64)
-	if err != nil {
-		log.Fatalln(err)
-	}
+	fmt.Scanln(&amount)
 
 	fmt.Println("Введите процент вклада:")
-	fmt.Scanln(&str)
-	percent, err := strconv.ParseFloat(str, 64)
-	if err != nil {
-		log.Fatalln(err)
-	}
+	fmt.Scanln(&percent)
 
 	if percent > 1 {
 		percent /= 100
