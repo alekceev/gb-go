@@ -11,12 +11,12 @@ func main() {
 	fmt.Println("Введите число:")
 	fmt.Scanln(&num)
 	res := " не"
-	if isDivZero(num) {
+	if isDivisibleBy(num, div) {
 		res = ""
 	}
 	fmt.Printf("Число %d%s делится без остатся на %d\n", num, res, div)
 }
 
-func isDivZero(i int) bool {
-	return i%div == 0
+func isDivisibleBy(dividend, divider int) bool {
+	return dividend%divider == 0
 }
