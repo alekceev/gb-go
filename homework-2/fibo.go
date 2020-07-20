@@ -7,10 +7,7 @@ import "fmt"
 
 func main() {
 
-	var fibo []float64
-
-	// заполняем ряд
-	fibonachi(&fibo, 100)
+	fibo := fibonachi(100)
 
 	for i, n := range fibo {
 		fmt.Printf("%-5d %.0f\n", i, n)
@@ -18,24 +15,14 @@ func main() {
 }
 
 // фунция получения первых maxLen элементов ряда фибоначи
-func fibonachi(fibo *[]float64, maxLen int) {
+func fibonachi(maxLen int) []float64 {
 
 	// Начальные значения для ряда фибоначи
-	if *fibo == nil {
-		*fibo = append(*fibo, 0, 1)
+	var fibo = []float64{0, 1}
+
+	for i := 1; i < maxLen; i++ {
+		fibo = append(fibo, fibo[i]+fibo[i-1])
 	}
 
-	lastID := len(*fibo) - 1
-
-	// Набрали нужную длину, выходим
-	if lastID >= 100 {
-		return
-	}
-
-	n1 := (*fibo)[lastID]
-	n2 := (*fibo)[lastID-1]
-
-	*fibo = append(*fibo, n1+n2)
-
-	fibonachi(fibo, maxLen)
+	return fibo
 }
