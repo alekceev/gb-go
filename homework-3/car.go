@@ -10,6 +10,10 @@ import (
 2. Применить к ним различные действия. Вывести значения свойств экземпляров в консоль.
 */
 
+var boolName = map[bool]string{
+	true: "Да",
+	false: "Нет",
+}
 
 type Car struct {
 	Type string
@@ -59,18 +63,12 @@ func main() {
 		},
 	}
 
-	// Загружаем багаэник
+	// Загружаем багажник
 	cars[0].Trunk = 200;
 	// Запускаем двигатель
 	cars[0].StartedEngine = true;
 	// Открываем окно
 	cars[0].OpenWindows = true;
-
-
-	var boolName = map[bool]string{
-		true: "Да",
-		false: "Нет",
-	}
 
 	format := `
 	Класс автомобиля: %s
